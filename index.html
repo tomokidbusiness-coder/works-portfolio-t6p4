@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>実績紹介</title>
+<style>
+  :root { --bg:#fff; --ink:#231f20; --sub:#6b6869; --line:#e6e4e8; --blue:#c0cde8; --blue-d:#7f93c4; --tint:#f4f6fb; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink); line-height:1.9; font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif; -webkit-text-size-adjust:100%; }
+  .serif { font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 20px; }
+
+  /* ファーストビュー */
+  .hero { position:relative; overflow:hidden; background:#fff; }
+  .hero .wrap { position:relative; z-index:1; padding-top:48px; padding-bottom:64px; min-height:520px; }
+  .brand { display:flex; justify-content:space-between; align-items:baseline; font-size:13px; letter-spacing:.14em; }
+  .brand b { font-weight:700; }
+  .brand span { color:var(--sub); font-size:11px; letter-spacing:.2em; }
+  .hero h1 { font-weight:700; font-size:clamp(21px,4.4vw,38px); line-height:1.65; margin:72px 0 20px; max-width:620px; letter-spacing:.04em; }
+  .hero h1 i { font-style:normal; display:inline-block; }
+  .hero .sub { margin:0; font-size:14px; color:var(--sub); max-width:420px; }
+  .nav { margin-top:28px; display:flex; gap:10px; flex-wrap:wrap; position:relative; z-index:2; }
+  .nav a { color:var(--ink); text-decoration:none; font-size:13px; letter-spacing:.1em; padding:9px 22px; border:1px solid var(--ink); border-radius:999px; background:rgba(255,255,255,.8); }
+  .nav a:hover { background:var(--ink); color:#fff; }
+  .mt { position:absolute; right:0; bottom:0; width:min(62%,600px); height:auto; z-index:0; }
+  @media (max-width:700px) {
+    .hero .wrap { min-height:0; padding-top:28px; padding-bottom:200px; }
+    .hero h1 { margin-top:44px; }
+    .mt { width:96%; }
+  }
+
+  /* 見出し・セクション */
+  section { padding:56px 0 8px; }
+  .eyebrow { font-size:11px; letter-spacing:.3em; color:var(--blue-d); font-weight:700; }
+  h2 { font-weight:700; font-size:24px; margin:6px 0 8px; letter-spacing:.06em; }
+  h2::after { content:""; display:block; width:44px; height:3px; background:var(--blue); margin-top:12px; }
+  .lead { color:var(--sub); font-size:14px; margin:14px 0 26px; }
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+  @media (max-width:700px) { .grid { grid-template-columns:1fr; gap:18px; } section { padding-top:44px; } }
+
+  /* カード */
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 6px 24px rgba(127,147,196,.12); }
+  .thumb { height:210px; overflow:hidden; position:relative; background:var(--tint); }
+  .thumb iframe { width:1200px; height:840px; border:0; transform:scale(.4); transform-origin:0 0; pointer-events:none; }
+  @media (max-width:700px) { .thumb { height:190px; } .thumb iframe { transform:scale(.3); } }
+  .body { padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .tag { align-self:flex-start; font-size:11px; letter-spacing:.1em; color:#4a5c8c; background:rgba(192,205,232,.45); border-radius:999px; padding:1px 12px; }
+  .card h3 { margin:0; font-size:18px; line-height:1.55; }
+  .card p { margin:0; font-size:14px; color:var(--sub); }
+  dl { margin:4px 0 0; font-size:13px; display:grid; grid-template-columns:auto 1fr; gap:4px 14px; padding-top:12px; border-top:1px solid var(--line); }
+  dt { color:var(--sub); } dd { margin:0; }
+  .btn { margin-top:auto; display:block; text-align:center; text-decoration:none; font-size:14px; letter-spacing:.08em; padding:12px 14px; border-radius:999px; background:var(--ink); color:#fff; }
+  .btn:hover { background:#4a4647; }
+  .tool .body { padding:22px 20px; }
+  .icon { width:44px; height:44px; border-radius:12px; background:var(--tint); display:flex; align-items:center; justify-content:center; font-size:22px; }
+
+  /* フッター(名刺の裏面イメージ) */
+  footer { position:relative; overflow:hidden; background:var(--ink); color:#fff; margin-top:72px; }
+  footer .wrap { position:relative; z-index:1; padding-top:56px; padding-bottom:72px; }
+  footer .role { font-size:13px; letter-spacing:.12em; color:#cfcccd; margin:0 0 22px; }
+  footer .name { font-size:26px; letter-spacing:.3em; margin:0; }
+  footer .en { font-size:13px; letter-spacing:.16em; color:#cfcccd; margin:6px 0 0; }
+  .contact { margin:30px 0 0; display:flex; flex-wrap:wrap; gap:10px; }
+  .contact a { color:#fff; text-decoration:none; font-size:13px; letter-spacing:.06em; padding:9px 20px; border:1px solid rgba(255,255,255,.6); border-radius:999px; }
+  .contact a:hover { background:#fff; color:var(--ink); }
+  footer .note { margin:36px 0 0; font-size:11px; color:#8d8a8b; }
+  .mt2 { position:absolute; right:0; bottom:0; width:min(56%,520px); height:auto; z-index:0; }
+  @media (max-width:700px) { footer .wrap { padding-bottom:170px; } .mt2 { width:92%; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="mt" viewBox="0 0 600 380" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+    <polygon fill="#c0cde8" points="0,380 60,350 150,330 250,300 320,250 350,190 400,130 430,60 455,20 490,55 530,115 600,150 600,380"/>
+    <g fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round">
+      <polyline points="455,20 455,110 430,60"/>
+      <polyline points="455,110 490,55"/>
+      <polyline points="455,110 520,200 530,115"/>
+      <polyline points="400,130 455,110"/>
+      <polyline points="400,130 440,230 520,200 600,230"/>
+      <polyline points="350,190 440,230 400,300"/>
+      <polyline points="320,250 400,300 530,290 600,330"/>
+      <polyline points="250,300 400,300"/>
+      <polyline points="440,230 480,380"/>
+      <polyline points="520,200 540,290 570,380"/>
+      <polyline points="150,330 250,300"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="brand"><b class="serif">道浦 友貴</b><span>WORKS &amp; TOOLS</span></div>
+    <h1 class="serif"><i>バックオフィスや</i><i>イベント運営サポート</i><i>業務の</i><i>効率化まで、</i><i>頼まれたことの</i><i>周辺も含めて、</i><i>お手伝いさせていただきます。</i></h1>
+    <p class="sub">LP・事業紹介ページの制作実績と、業務を助けるツールをまとめました。</p>
+    <nav class="nav"><a href="#works">制作実績</a><a href="#tools">ツール</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="works">
+    <div class="eyebrow">WORKS</div>
+    <h2 class="serif">制作実績</h2>
+    <p class="lead">実際に公開しているページです。タップするとページが開きます。</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="thumb"><iframe src="https://tomokidbusiness-coder.github.io/lp-preview-ota-7k3q/" loading="lazy" tabindex="-1" title="出版記念セミナーLPのプレビュー"></iframe></div>
+        <div class="body">
+          <span class="tag">LP制作</span>
+          <h3>出版記念セミナーのLP</h3>
+          <p>『リーダー1年目の叱り方の教科書』出版記念セミナーの集客ページ。「これ、どう叱る？」という困った場面から入り、内容・登壇者・開催概要・FAQ・申込みへと流れる構成です。</p>
+          <dl>
+            <dt>形式</dt><dd>会場参加 / ライブ配信</dd>
+            <dt>構成</dt><dd>共感 → 内容 → 実績 → 概要 → FAQ → 申込み</dd>
+          </dl>
+          <a class="btn" href="https://tomokidbusiness-coder.github.io/lp-preview-ota-7k3q/" target="_blank" rel="noopener">ページを見る</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"><iframe src="https://ayakohanaokakouryukai-bit.github.io/100people_meetup_2/" loading="lazy" tabindex="-1" title="100人交流会のプレビュー"></iframe></div>
+        <div class="body">
+          <span class="tag">イベント紹介ページ</span>
+          <h3>100人交流会</h3>
+          <p>「100人の挑戦が、ここでつながる。」をテーマにした交流会のページ。名刺交換で終わらない交流会であることを、価値観と方針で伝えています。</p>
+          <dl>
+            <dt>日時</dt><dd>2027年2月6日（土）13:00〜16:00</dd>
+            <dt>場所</dt><dd>東京都内（品川・新宿エリア予定）</dd>
+            <dt>参加費</dt><dd>3,000円（20歳未満無料）</dd>
+          </dl>
+          <a class="btn" href="https://ayakohanaokakouryukai-bit.github.io/100people_meetup_2/" target="_blank" rel="noopener">ページを見る</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="eyebrow">TOOLS</div>
+    <h2 class="serif">ツール</h2>
+    <p class="lead">告知づくりから日々の業務管理まで、ブラウザだけで使えるツールです。</p>
+    <div class="grid">
+
+      <article class="card tool">
+        <div class="body">
+          <span class="icon">🖼️</span>
+          <h3>告知画像 プロンプトメーカー</h3>
+          <p>イベントの情報や雰囲気を入力すると、AIに告知画像を作らせるための指示文ができるツールです。スマホからも使えます。</p>
+          <a class="btn" href="https://tomokidbusiness-coder.github.io/ai-prompt-maker-x9m2/" target="_blank" rel="noopener">ツールを開く</a>
+        </div>
+      </article>
+
+      <article class="card tool">
+        <div class="body">
+          <span class="icon">📄</span>
+          <h3>LP 一発プロンプトメーカー</h3>
+          <p>LPに載せたい内容を入力すると、AIにLPを一発で作らせるための指示文ができるツールです。</p>
+          <a class="btn" href="https://tomokidbusiness-coder.github.io/lp-prompt-maker-r4k8/" target="_blank" rel="noopener">ツールを開く</a>
+        </div>
+      </article>
+
+      <article class="card tool">
+        <div class="body">
+          <span class="icon">✅</span>
+          <h3>タスクボード</h3>
+          <p>アイゼンハワーマトリックス(緊急×重要の4区分)でタスクを整理する業務管理ツールです。確認待ち欄、CSVの保存・読込、ブラウザへの自動保存に対応しています。</p>
+          <a class="btn" href="https://tomokidbusiness-coder.github.io/task-board-m3q7/" target="_blank" rel="noopener">ツールを開く</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <svg class="mt2" viewBox="0 0 600 380" preserveAspectRatio="xMaxYMax meet" aria-hidden="true">
+    <g fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round">
+      <polygon points="0,380 60,350 150,330 250,300 320,250 350,190 400,130 430,60 455,20 490,55 530,115 600,150 600,380"/>
+      <polyline points="455,20 455,110 430,60"/>
+      <polyline points="455,110 490,55"/>
+      <polyline points="455,110 520,200 530,115"/>
+      <polyline points="400,130 455,110"/>
+      <polyline points="400,130 440,230 520,200 600,230"/>
+      <polyline points="350,190 440,230 400,300"/>
+      <polyline points="320,250 400,300 530,290 600,330"/>
+      <polyline points="250,300 400,300"/>
+      <polyline points="440,230 480,380"/>
+      <polyline points="520,200 540,290 570,380"/>
+      <polyline points="150,330 250,300"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="role serif">バックオフィス／イベント運営サポート／業務効率化</p>
+    <p class="name serif">道浦 友貴</p>
+    <p class="en serif">Tomoki Doura</p>
+    <div class="contact">
+      <a href="mailto:tomoki.d.business@gmail.com">✉ tomoki.d.business@gmail.com</a>
+      <a href="https://www.instagram.com/tomoki_d_/" target="_blank" rel="noopener">Instagram @tomoki_d_</a>
+      <a href="https://x.com/tomoki_d_" target="_blank" rel="noopener">X @tomoki_d_</a>
+    </div>
+    <p class="note">© Tomoki Doura</p>
+  </div>
+</footer>
+
+</body>
+</html>
